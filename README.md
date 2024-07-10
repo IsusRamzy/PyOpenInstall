@@ -8,5 +8,5 @@ Contribute to PyOpenInstall and let people install it!
 
 ### How To Install
 - Download the `main.py` file.
-- If you are on a unix-like OS (eg. MacOS, Linux), you can edit your `.bashrc` file or `.zshrc` file by adding the line `alias pyopeninstall='path/to/main.py'` and replace `path/to/main.py` with the path of the downloaded `main.py`.
+- If you are on a unix-like OS (eg. MacOS, Linux), you can edit your `.bashrc` file or `.zshrc` file by adding the line `alias pyopeninstall='python path/to/main.py'` and replace `path/to/main.py` with the path of the downloaded `main.py`.  ***Note: some systems use `python3` instead of `python`.***
 - Start installing modules and have fun!

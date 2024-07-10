@@ -21,8 +21,7 @@ except json.JSONDecodeError:
     print('Database not valid.\nIt looks like that you edited it.\nYou can delete the database.json file then install it from the PyOpenInstal project.')
     quit()
 
-option = int(input("""
-            Welcome
+option = int(input("""                Welcome
 Welcome to the PyOpenInstall project!
 If you want to install a module: enter 1
 
