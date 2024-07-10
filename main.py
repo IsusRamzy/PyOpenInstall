@@ -13,10 +13,9 @@ home = expanduser("~")
 pypath = f'{home}/.local/lib/python{pyversion.major}.{pyversion.minor}/site-packages'
 
 try:
-    with open('database.json') as datafile:
-        database = json.load(datafile)
-except FileNotFoundError:
-    print('Database not found.\nIt looks like that you deleted it.\nYou can install it from the PyOpenInstall project.')
+    database = requests.get('https://raw.githubusercontent.com/IsusRamzy/PyOpenInstall/master/database.json')
+except requests.ConnectionError:
+    print('CONNECTION FAILED')
     quit()
 except json.JSONDecodeError:
     print('Database not valid.\nIt looks like that you edited it.\nYou can delete the database.json file then install it from the PyOpenInstal project.')
