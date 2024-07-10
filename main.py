@@ -6,8 +6,11 @@ import requests
 import os
 from os.path import expanduser
 import zipfile
+import sys
 
+pyversion = sys.version_info
 home = expanduser("~")
+pypath = f'{home}/.local/lib/python{pyversion.major}.{pyversion.minor}/site-packages'
 
 try:
     with open('database.json') as datafile:
@@ -26,9 +29,7 @@ If you want to install a module: enter 1
 
 If you want to uninstall a module: enter 2
 
-If you want to update a module: enter 4
-
-If you want to update PyOpenInstall: enter 5
+If you want to update PyOpenInstall: enter 3
 
 Enter your option: """))
 
@@ -54,16 +55,24 @@ if option == 1:
 
         # unzip the downloaded file
         with zipfile.ZipFile(path, 'r') as zip_ref:
-            zip_ref.extractall(target['name']+'-repo')
-        master = f"{target['name']}-repo/{target['name']}-master/{target['name']}"
-        if os.name == 'posix':
-            os.system(f'mv "{master}" "{target["name"]}"')
-        elif os.name == 'nt':
-            os.system(f'move "{master}" "{target["name"]}"')
+            zip_ref.extractall(pypath+'/'+module+'-repo')
+        master_name = ''
+        for root, dirs, files in os.walk(f"{pypath}/{target['name']}-repo"):
+            print(dirs)
+            master_name = dirs[0]
+            break
+        
+        master = f"{pypath}/{target['name']}-repo/{master_name}/{target['name']}"
+        todelete = f"{pypath}/{target['name']}-repo"
+        if os.name == 'posix': # Unix-Like: MacOS, Linux, ...
+            os.system(f'mv "{master}" "{pypath}/{target["name"]}"')
+            #os.system(f'rm -rf "{todelete}"')
+        elif os.name == 'nt': # Windows
+            os.system(f'move "{master}" "{pypath}/{target["name"]}"')
+            os.system(f'rmdir "{todelete}"')
         else:
             print("OS NOT DETECTED")
             quit()
-        os.remove(master)
         print('Module Saved')
 
         
@@ -71,4 +80,15 @@ if option == 1:
         print('CONNECTION FAILED')
         quit()
     except KeyError:
-        print('Database not valid.\nIt looks like that you edited it.\nYou can delete the database.json file then install it from the PyOpenInstal project.')
+        print('Database not valid.\nIt looks like that you edited it.\nYou can delete the database.json file then install it from the PyOpenInstall project.')
+
+elif option == 2:
+    module = input('Name: ')
+    try:
+        os.system(f'rm -rf "{pypath}/{module}"')
+        print('Module Deleted')
+    except FileNotFoundError:
+        print("MODULE NOT FOUND")
+
+elif option == 3:
+    print('FEATURE NOT ADDED YET\nDELETE PYOPENINSTALL AND INSTALL IT AGAIN')
