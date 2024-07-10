@@ -13,7 +13,7 @@ home = expanduser("~")
 pypath = f'{home}/.local/lib/python{pyversion.major}.{pyversion.minor}/site-packages'
 
 try:
-    database = requests.get('https://raw.githubusercontent.com/IsusRamzy/PyOpenInstall/master/database.json')
+    database = requests.get('https://raw.githubusercontent.com/IsusRamzy/PyOpenInstall/master/database.json').text
 except requests.ConnectionError:
     print('CONNECTION FAILED')
     quit()
