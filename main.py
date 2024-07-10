@@ -64,7 +64,7 @@ if option == 1:
         todelete = f"{pypath}/{target['name']}-repo"
         if os.name == 'posix': # Unix-Like: MacOS, Linux, ...
             os.system(f'mv "{master}" "{pypath}/{target["name"]}"')
-            #os.system(f'rm -rf "{todelete}"')
+            os.system(f'rm -rf "{todelete}"')
         elif os.name == 'nt': # Windows
             os.system(f'move "{master}" "{pypath}/{target["name"]}"')
             os.system(f'rmdir "{todelete}"')
