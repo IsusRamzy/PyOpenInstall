@@ -89,4 +89,10 @@ elif option == 2:
         print("MODULE NOT FOUND")
 
 elif option == 3:
-    print('FEATURE NOT ADDED YET\nDELETE PYOPENINSTALL AND INSTALL IT AGAIN')
+    try:
+        code = requests.get('https://raw.githubusercontent.com/IsusRamzy/PyOpenInstall/master/main.py').text
+        with open(__file__, 'w') as file:
+            file.write(code)
+    except requests.ConnectionError:
+        print('CONNECTION FAILED')
+        quit()
