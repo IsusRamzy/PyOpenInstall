@@ -1,1 +1,1 @@
-[{"link": "https://github.com/pokepetter/ursina/archive/046ed8415d541f1806b60a825ba89697fa9ef6ca.zip", "name": "ursina", "note": "This is an example module, it will be deleted in feature databases. It's also included in `pip`"}]
+[{"link": "https://github.com/pokepetter/ursina/archive/046ed8415d541f1806b60a825ba89697fa9ef6ca.zip", "name": "ursina", "note": "This is an example module, it will be deleted in future databases. It's also included in `pip`. The `note` param also will be deleted.", "another note": "There will be a `description` param."}]
