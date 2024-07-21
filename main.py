@@ -1,3 +1,5 @@
+#V---0.1
+
 ### The source code of the PyOpenInstall project ###
 # If you want to suggest an edit, make a pull request to database.json
 # Contributions to the source code are welcome!
@@ -91,8 +93,10 @@ elif option == 2:
 elif option == 3:
     try:
         code = requests.get('https://raw.githubusercontent.com/IsusRamzy/PyOpenInstall/master/main.py').text
+        version = code.split('\n')[0] # First Line
         with open(__file__, 'w') as file:
             file.write(code)
+        print(f'PyOpenInstall Updated to {version}')
     except requests.ConnectionError:
         print('CONNECTION FAILED')
         quit()
