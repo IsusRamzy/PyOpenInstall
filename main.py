@@ -1,4 +1,4 @@
-#V---0.1
+#V---0.0.1
 
 ### The source code of the PyOpenInstall project ###
 # If you want to suggest an edit, make a pull request to database.json
