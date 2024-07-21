@@ -9,7 +9,7 @@ This is an open-source Python mini package-manager to install Python packages.
 Did you find an API not included in the standard Python manager, `pip`?  
 PyOpenInstall installs the API for you.  
 Or you have a Python module and you want people to install it easily?
-[Contribute to PyOpenInstall](CONTRIBUTION.md) and let people install it!  
+[Contribute to PyOpenInstall](CONTRIBUTING.md) and let people install it!  
 
 ### How To Install
 - Download the `main.py` file.
