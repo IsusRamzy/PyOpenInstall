@@ -9,4 +9,4 @@
 
 ## Reporting a Vulnerability
 
-If you found a vulnerability, please make an `issue` or a `pull request`.
+If you found a vulnerability, please report it in the `Security` tab.
