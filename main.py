@@ -1,4 +1,4 @@
-#V---0.0.1
+# 0.0.2 Beta
 
 ### The source code of the PyOpenInstall project ###
 # If you want to suggest an edit, make a pull request to database.json
@@ -97,9 +97,18 @@ elif option == 3:
     try:
         code = requests.get('https://raw.githubusercontent.com/IsusRamzy/PyOpenInstall/master/main.py').text
         version = code.split('\n')[0] # First Line
-        with open(__file__, 'w') as file:
-            file.write(code)
-        print(f'PyOpenInstall Updated to {version}')
+        if 'Stable' in version:
+            with open(__file__, 'w') as file:
+                file.write(code)
+            print(f'PyOpenInstall Updated to {version}')
+        elif 'Beta' in version:
+            okay = input("This is a beta version, upgrade? (Y/n):").lower()
+            if okay == 'n':
+                print('UPGRADE ABORTED')
+            elif okay == 'y':
+                with open(__file__, 'w') as file:
+                    file.write(code)
+                print(f'PyOpenInstall Updated to {version}')
     except requests.ConnectionError:
         print('CONNECTION FAILED')
         quit()
