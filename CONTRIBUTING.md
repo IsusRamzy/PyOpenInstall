@@ -12,3 +12,12 @@ If you want to add a new package:
 If you want to improve the package itself:
 - You will add a `pull request` to the file.  
 - I will check the code's saftey, if safe, I'll merge, otherwise, I'll report the account for the unsafe code.
+
+Contributions include:
+- Adding new features.
+- Fixing bugs.
+- Improving readability.
+- Improving compatibility.
+
+You can also help with:
+- Testing it on a modern Microsoft Windows device (Windows 8 -> Windows 11)
