@@ -70,6 +70,9 @@ if option == 1:
         elif os.name == 'nt': # Windows
             os.system(f'move "{master}" "{pypath}/{target["name"]}"')
             os.system(f'rmdir "{todelete}"')
+        elif os.name == 'java':
+            print('You CANNOT RUN PYOPENINSTALL ON JVM')
+            quit()
         else:
             print("OS NOT DETECTED")
             quit()
