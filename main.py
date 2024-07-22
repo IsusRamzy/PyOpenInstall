@@ -1,4 +1,4 @@
-# 0.0.2 Stable
+# 0.0.2 Dev
 
 ### The source code of the PyOpenInstall project ###
 # If you want to suggest an edit, make a pull request to database.json
@@ -103,6 +103,14 @@ elif option == 3:
             print(f'PyOpenInstall Updated to {version}')
         elif 'Beta' in version:
             okay = input("This is a beta version, upgrade? (Y/n):").lower()
+            if okay == 'n':
+                print('UPGRADE ABORTED')
+            elif okay == 'y':
+                with open(__file__, 'w') as file:
+                    file.write(code)
+                print(f'PyOpenInstall Updated to {version}')
+        elif 'Dev' in version:
+            okay = input("This is a development version. It's even less stable than beta versions. Developers use it to test upgrades before upgrading it. Upgrade? (Y/n):").lower()
             if okay == 'n':
                 print('UPGRADE ABORTED')
             elif okay == 'y':
