@@ -20,7 +20,7 @@ except requests.ConnectionError:
     print('CONNECTION FAILED')
     quit()
 except json.JSONDecodeError:
-    print('Database not valid.\nIt looks like that you edited it.\nYou can delete the database.json file then install it from the PyOpenInstal project.')
+    print('Database not valid. Please make an `issue` to the PyOpenInstall project.')
     quit()
 
 option = int(input("""                Welcome
