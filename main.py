@@ -1,4 +1,4 @@
-# 0.0.2 Stable
+# 0.0.3 Dev
 
 ### The source code of the PyOpenInstall project ###
 # If you want to suggest an edit, make a pull request to database.json
@@ -97,26 +97,30 @@ elif option == 3:
     try:
         code = requests.get('https://raw.githubusercontent.com/IsusRamzy/PyOpenInstall/master/main.py').text
         version = code.split('\n')[0] # First Line
+        with open(__file__) as file:
+            current_version = file.read().split('\n')[0]
+        if current_version == version:
+            print('PyOpenInstall is already the latest version.')
         if 'Stable' in version:
             with open(__file__, 'w') as file:
                 file.write(code)
-            print(f'PyOpenInstall Updated to {version}')
+            print(f'PyOpenInstall Updated from {current_version} to {version}')
         elif 'Beta' in version:
-            okay = input("This is a beta version, upgrade? (Y/n):").lower()
+            okay = input("This is a beta version, not very stable.\nUpgrade? (Y/n):").lower()
             if okay == 'n':
                 print('UPGRADE ABORTED')
             elif okay == 'y':
                 with open(__file__, 'w') as file:
                     file.write(code)
-                print(f'PyOpenInstall Updated to {version}')
+                print(f'PyOpenInstall Updated from {current_version} to {version}')
         elif 'Dev' in version:
-            okay = input("This is a development version. It's even less stable than beta versions. Developers use it to test upgrades before upgrading it. Upgrade? (Y/n):").lower()
+            okay = input("This is a development version. It's even less stable than beta versions. It may completely break PyOpenInstall.\nDevelopers use it to test upgrades before making them stable. Upgrade? (Y/n):").lower()
             if okay == 'n':
                 print('UPGRADE ABORTED')
             elif okay == 'y':
                 with open(__file__, 'w') as file:
                     file.write(code)
-                print(f'PyOpenInstall Updated to {version}')
+                print(f'PyOpenInstall Updated from {current_version} to {version}')
     except requests.ConnectionError:
         print('CONNECTION FAILED')
         quit()
