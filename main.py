@@ -1,5 +1,7 @@
 # 0.0.3 Stable
 
+# PyOpenInstall  Copyright (C) 2024  Isus Ramzy
+
 ### The source code of the PyOpenInstall project ###
 # If you want to suggest an edit, make a pull request to database.json
 # Contributions to the source code are welcome!
