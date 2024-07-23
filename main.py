@@ -1,4 +1,4 @@
-# 0.0.3 Beta
+# 0.0.3 Stable
 
 ### The source code of the PyOpenInstall project ###
 # If you want to suggest an edit, make a pull request to database.json
