@@ -1,4 +1,4 @@
-# 0.0.3 Dev
+# 0.0.3 Beta
 
 ### The source code of the PyOpenInstall project ###
 # If you want to suggest an edit, make a pull request to database.json
@@ -101,6 +101,7 @@ elif option == 3:
             current_version = file.read().split('\n')[0]
         if current_version == version:
             print('PyOpenInstall is already the latest version.')
+            quit()
         if 'Stable' in version:
             with open(__file__, 'w') as file:
                 file.write(code)
