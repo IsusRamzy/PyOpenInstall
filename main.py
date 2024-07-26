@@ -1,4 +1,4 @@
-# 0.0.3 Stable
+# 0.0.4 Stable
 
 # PyOpenInstall  Copyright (C) 2024  Isus Ramzy
 
