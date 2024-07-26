@@ -15,9 +15,12 @@ import sys
 pyversion = sys.version_info
 home = expanduser("~")
 pypath = f'{home}/.local/lib/python{pyversion.major}.{pyversion.minor}/site-packages'
-
 try:
-    database = requests.get('https://raw.githubusercontent.com/IsusRamzy/PyOpenInstall/master/database.json').text
+    os.mkdir(f'{home}/PyOpenInstall')
+except FileExistsError:
+    pass
+try:
+    database = json.loads(requests.get('https://raw.githubusercontent.com/IsusRamzy/PyOpenInstall/master/database.json').text)
 except requests.ConnectionError:
     print('CONNECTION FAILED')
     quit()
@@ -47,7 +50,7 @@ if option == 1:
         status, target = find_module_by_name(module)
         if status == 1:
             print(target)
-            quit()
+            exit(1)
         link = target['link']
         print('Reading module data...')
         response = requests.get(link, headers={'User-Agent': 'PyOpenInstall'})
@@ -60,7 +63,6 @@ if option == 1:
             zip_ref.extractall(pypath+'/'+module+'-repo')
         master_name = ''
         for root, dirs, files in os.walk(f"{pypath}/{target['name']}-repo"):
-            print(dirs)
             master_name = dirs[0]
             break
         
