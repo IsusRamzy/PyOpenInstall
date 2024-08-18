@@ -1,4 +1,4 @@
-# 0.0.4 Stable
+# 0.0.5 Development
 
 # PyOpenInstall  Copyright (C) 2024  Isus Ramzy
 
@@ -28,15 +28,7 @@ except json.JSONDecodeError:
     print('Database not valid. Please make an `issue` to the PyOpenInstall project.')
     quit()
 
-option = int(input("""                Welcome
-Welcome to the PyOpenInstall project!
-If you want to install a module: Enter 1
-
-If you want to uninstall a module: Enter 2
-
-If you want to update PyOpenInstall: Enter 3
-
-Enter your option: """))
+option = sys.argv[0]
 
 def find_module_by_name(name):
     for module in database:
@@ -44,8 +36,8 @@ def find_module_by_name(name):
             return 0, module
     return 1, 'MODULE NOT FOUND'
 
-if option == 1:
-    module = input('Name: ')
+if option == 'install':
+    module = argv[1]
     try:
         status, target = find_module_by_name(module)
         if status == 1:
@@ -89,8 +81,8 @@ if option == 1:
     except KeyError:
         print('Database not valid.\nIt looks like that you edited it.\nYou can delete the database.json file then install it from the PyOpenInstall project.')
 
-elif option == 2:
-    module = input('Name: ')
+elif option == 'uninstall':
+    module = argv[1]
     try:
         os.system(f'rm -rf "{pypath}/{module}"')
         print('Module Deleted')
