@@ -30,11 +30,11 @@ except json.JSONDecodeError:
 
 option = int(input("""                Welcome
 Welcome to the PyOpenInstall project!
-If you want to install a module: enter 1
+If you want to install a module: Enter 1
 
-If you want to uninstall a module: enter 2
+If you want to uninstall a module: Enter 2
 
-If you want to update PyOpenInstall: enter 3
+If you want to update PyOpenInstall: Enter 3
 
 Enter your option: """))
 
