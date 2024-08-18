@@ -101,7 +101,7 @@ elif option == 'uninstall':
     if len(sys.argv) < 3:
         print(f"CANNOT OPERATE ON {len(sys.argv)} ARGUMENTS.")
         exit(1)
-    module = argv[2]
+    module = sys.argv[2]
     try:
         os.system(f'rm -rf "{pypath}/{module}"')
         print('Module Deleted')
