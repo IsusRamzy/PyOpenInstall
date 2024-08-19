@@ -44,7 +44,7 @@ if option == 'install':
     if len(sys.argv) < 3:
         print(f"CANNOT OPERATE ON {len(sys.argv)} ARGUMENTS.")
         exit(1)
-    module = argv[2]
+    module = sys.argv[2]
     try:
         status, target = find_module_by_name(module)
         if status == 1:
@@ -52,7 +52,7 @@ if option == 'install':
             exit(1)
         print("Installing dependencies...")
         for dependency in target['pip_install']:
-            myproccces = os.system(f"pip install {dependency}")
+            myproccces = os.system(f"pip install {dependency} --break-system-packages")
             if myproccces == 1:
                 exit(1)
         for dependency in target['pyopeninstall_install']:
