@@ -4,7 +4,7 @@
         "name": "ursina",
         "note": "This is an example module, it will be deleted in future databases. It's also included in `pip`. The `note` param also will be deleted.",
         "another note": "There will be a `description` param.",
-        "pip_install": ["poetry-core", "panda3d"],
+        "pip_install": ["poetry-core", "panda3d", "screeninfo", "gtlf", "pyperclip"],
         "pyopeninstall_install": []
     }
 ]
