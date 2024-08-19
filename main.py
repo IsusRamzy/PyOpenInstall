@@ -56,7 +56,7 @@ if option == 'install':
             if myproccces == 1:
                 exit(1)
         for dependency in target['pyopeninstall_install']:
-            myproccess = os.system(f"{__file__} install {dependency}")
+            myproccess = os.system(f"python3 {__file__} install {dependency}")
             if myproccces == 1:
                 exit(1)
         link = target['link']
